@@ -1,7 +1,7 @@
 .navbar {
-  background-color: bisque;
   display: flex;
   align-items: center;
+  box-shadow: 6px 4px 15px 0px rgba(121, 121, 121, 0.75);
 }
 .scroll-nav {
   display: flex;
