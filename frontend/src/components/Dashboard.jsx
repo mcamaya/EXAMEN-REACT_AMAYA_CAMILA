@@ -7,7 +7,20 @@ export default function Dashboard() {
   const urlApi = "http://localhost:5010/producto";
   const [productos, setProductos] = useState([]);
 
-  useEffect(() => {
+  const [estaCategorizado, setEstaCategorizado] = useState(false)
+
+  const categorizar = (categoriaId) => {
+    if(estaCategorizado == false){
+      let newProducts = productos.map(e => e.categoriaId == categoriaId);
+      console.log(newProducts);
+      setProductos(newProducts);
+      setEstaCategorizado(true);
+    } else if (estaCategorizado == true) {
+      fetchData();
+    }
+  }
+
+  const fetchData = () => {
     fetch(urlApi, {
       method: "GET",
       headers: {
@@ -17,6 +30,10 @@ export default function Dashboard() {
       .then((res) => res.json())
       .then(({ data }) => setProductos(data))
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    fetchData()
   }, []);
 
   const [isShowing, setIsShowing] = useState(false);
@@ -72,6 +89,11 @@ export default function Dashboard() {
       <button className="product-button" onClick={() => toggleCart()}>
         Ver carrito
       </button>
+      <div className="buttons-containers">
+        <button onClick={() => categorizar("652967e758635562edc2594c")}>Abrigos</button>
+        <button onClick={() => categorizar("6529680558635562edc2594d")}>Camisetas</button>
+        <button onClick={() => categorizar("6529681f58635562edc2594e")}>Pantalones</button>
+      </div>
       <div className="products-container">
         {productos.map(
           ({ _id, nombre, imagen, descripcion, precio }, index) => (
