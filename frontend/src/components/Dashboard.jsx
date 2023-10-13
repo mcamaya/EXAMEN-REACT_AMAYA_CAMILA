@@ -10,13 +10,14 @@ export default function Dashboard() {
   const [estaCategorizado, setEstaCategorizado] = useState(false)
 
   const categorizar = (categoriaId) => {
-    if(estaCategorizado == false){
-      let newProducts = productos.map(e => e.categoriaId == categoriaId);
+    if(estaCategorizado === false){
+      let newProducts = productos.filter(e => e.categoriaId == categoriaId);
       console.log(newProducts);
       setProductos(newProducts);
       setEstaCategorizado(true);
-    } else if (estaCategorizado == true) {
+    } else if (estaCategorizado === true) {
       fetchData();
+      setEstaCategorizado(false);
     }
   }
 
