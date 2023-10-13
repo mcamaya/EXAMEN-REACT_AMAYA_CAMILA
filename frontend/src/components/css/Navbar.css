@@ -1,0 +1,16 @@
+.navbar {
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+}
+.scroll-nav {
+  display: flex;
+  list-style: none;
+  overflow-x: scroll;
+  height: 60px;
+  align-items: center;
+}
+li {
+  margin: 0 20px;
+  min-width: fit-content;
+}
