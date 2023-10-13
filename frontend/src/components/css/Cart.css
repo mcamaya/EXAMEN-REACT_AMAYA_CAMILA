@@ -1,0 +1,55 @@
+.carrito {
+  position: absolute;
+  margin: auto;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  width: 40vw;
+  min-height: 80vh;
+  z-index: 40;
+  padding: 1rem;
+  border: 3px solid black;
+}
+
+.cart-product {
+  background-color: white;
+  width: 100%;
+  height: 120px;
+  margin: 10px 0;  
+  border: 1px solid black;
+  display: flex;
+}
+
+.cart-product img  {
+  width: 150px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cart-prd-info h3{
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.cart-prd-info {
+  margin-left: 10px;
+}
+
+.product-cart-controllers {
+  display: flex;
+  margin-top: 10px;
+}
+
+.product-cart-controllers p {
+  margin: 0 10px;
+}
+
+.cerrar {
+  padding: 0.3rem 0.7rem;
+  font-weight: 900;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  background-color: red;
+}

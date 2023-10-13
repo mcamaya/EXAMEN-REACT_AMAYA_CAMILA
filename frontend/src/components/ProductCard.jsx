@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import "./css/ProductCard.css";
 
-export default function ProductCard({ nombre, imagen, descripcion, precio }) {
+export default function ProductCard({ id, nombre, imagen, descripcion, precio, addToCart }) {
   const [isShowing, setIsShowing] = useState(false);
   const [modalAttr, setModalAttr] = useState("none");
-
-  const addToCart = () => {
-    
-  }
 
   const toggleModal = () => {
     if (isShowing) {
@@ -29,7 +25,7 @@ export default function ProductCard({ nombre, imagen, descripcion, precio }) {
       </div>
       <div className="product-info">
         <h2 className="product-title">{nombre}</h2>
-        <p className="product-description">{descripcion.slice(0, 300)}...</p>
+        <p className="product-description">{descripcion}...</p>
         <h5 className="product-price">${precio.toLocaleString()}</h5>
         <button className="product-button" onClick={() => toggleModal()}>
           Comprar
@@ -43,12 +39,12 @@ export default function ProductCard({ nombre, imagen, descripcion, precio }) {
         <div className="product-info-modal">
           <h2 className="product-title-modal">{nombre}</h2>
           <p className="product-description-modal">
-            {descripcion.slice(0, 200)}...
+            {descripcion}...
           </p>
           <div className="modal-bottom">
             <h5 className="product-price">${precio.toLocaleString()}</h5>
             <div>
-            <button className="product-button" onClick={() => addToCart()}>Añadir al carrito</button>
+            <button className="product-button" onClick={addToCart}>Añadir al carrito</button>
             <button className="product-button" onClick={() => toggleModal()}>Volver</button>
             </div>
           </div>
